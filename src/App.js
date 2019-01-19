@@ -1,22 +1,18 @@
 import React from "react"
 import TodoItem from "./TodoItem"
+import todosData from "./todosData"
 import MoodCard from "./MoodCard"
 
 import moodCardData from "./moodCardData"
-const cardComponents = moodCardData.map(cardItem =><MoodCard key={cardItem.id}
-               title={cardItem.title}
-            content={cardItem.content}
-            tag={cardItem.tag}
+const cardComponents = moodCardData.map(item =><MoodCard key={item.id}
+               cardItem={item}
  />)
 
 function App() {
-  
+  const todoItemComponents = todosData.map(list => <TodoItem key={list.id} todolist={list}/>)
     return (
         <div className="todo-list">
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+             {todoItemComponents}
             {cardComponents}
         </div>
     )
