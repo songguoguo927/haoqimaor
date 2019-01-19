@@ -1,5 +1,6 @@
 import React from "react"
 import TodoItem from "./TodoItem"
+import MoodCard from "./MoodCard"
 
 function App() {
     return (
@@ -8,6 +9,7 @@ function App() {
             <TodoItem />
             <TodoItem />
             <TodoItem />
+            <MoodCard />
         </div>
     )
 }
