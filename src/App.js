@@ -9,10 +9,12 @@ function App() {
             <TodoItem />
             <TodoItem />
             <TodoItem />
-            <MoodCard 
-            title="卡片的标题"
-            content="卡片的内容"
-            tag="卡片的下标" 
+            <MoodCard cardItem={{
+               title:"卡片的标题",
+            content:"卡片的内容",
+            tag:"卡片的下标时间"
+           }}
+           
             />
         </div>
     )
