@@ -1,16 +1,12 @@
 import React from 'react'
 
-import CardTitle from './CardTitle'
-import Content from './Content'
-import Tag from './Tag'
-
-function MoodCard(){
-    
+function MoodCard(props){
+    console.log(props)
   return (
      <div>
-        <CardTitle/>
-        <Content />
-        <Tag />
+       <h3>{props.title}</h3>
+       <p>{props.content}</p>
+       <p>{props.tag}</p>
    </div>
  )
 }

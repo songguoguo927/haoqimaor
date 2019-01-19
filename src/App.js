@@ -9,7 +9,11 @@ function App() {
             <TodoItem />
             <TodoItem />
             <TodoItem />
-            <MoodCard />
+            <MoodCard 
+            title="卡片的标题"
+            content="卡片的内容"
+            tag="卡片的下标" 
+            />
         </div>
     )
 }
