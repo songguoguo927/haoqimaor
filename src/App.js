@@ -1,4 +1,14 @@
 import React,{Component} from "react"
+
+//等价于
+
+// import React from "react"
+// import {Component} from "react"
+//等价于==知识点：ES6的结构赋值
+
+// import React from "react"//只要用到了JSX语法就要引入react
+// const Component = React.Component
+
 import TodoItem from "./TodoItem"
 import todosData from "./todosData"
 import MoodCard from "./MoodCard"
@@ -33,10 +43,12 @@ class App extends Component {
     render(){
     const todoItemComponents = this.state.todos.map(list => <TodoItem key={list.id} todolist={list} handleChange={this.handleChange}/>)
     return (
+        
         <div className="todo-list">
              {todoItemComponents}
              {cardComponents}
         </div>
+        
     )
     }
  
