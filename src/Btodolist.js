@@ -1,5 +1,5 @@
 import React,{Component,Fragment} from "react"
-
+import './style.css'
 class Btodolist extends Component{
     constructor(props){
         super(props)
@@ -10,7 +10,7 @@ class Btodolist extends Component{
     }
     render(){
         return (
-        <Fragment>
+        <div className='todo-list'>
         <div className="todo-add">
             <input 
                 type="text" 
@@ -23,14 +23,19 @@ class Btodolist extends Component{
            {
                this.state.list.map((item,index) =>{
                 return (
-                    <div>
-                    <li key={index}>{item}</li>
+                    <Fragment>
+                    <li 
+                     className='todo-item'
+                     key={index} 
+                     dangerouslySetInnerHTML={{__html:item}}
+                     >
+                     </li>
                    <button onClick={this.handleRemBtnClick.bind(this,index)}>remove</button>
-                   </div>)
+                   </Fragment>)
              })
           }
         </ul>
-        </Fragment>
+        </div>
         )
     }
     handleInputChange(e){
