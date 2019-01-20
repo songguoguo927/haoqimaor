@@ -17,7 +17,18 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange(id){
-        console.log("changed",id)
+         console.log("changed",id)
+         this.setState(preState =>{
+             const updateTodos = preState.todos.map(list =>{
+                 if(list.id === id){
+                     list.completed = !list.completed
+                 }
+                 return list
+             })
+             return {
+                 todos:updateTodos
+             }
+         })
     }
     render(){
     const todoItemComponents = this.state.todos.map(list => <TodoItem key={list.id} todolist={list} handleChange={this.handleChange}/>)
