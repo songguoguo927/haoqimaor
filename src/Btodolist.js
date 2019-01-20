@@ -1,41 +1,40 @@
 import React,{Component,Fragment} from "react"
+
+import Btodoitem from "./Btodoitem"
 import './style.css'
 class Btodolist extends Component{
     constructor(props){
         super(props)
         this.state = {
-            inputValue:'',
+            inputValue:'添加待做事项',
             list: ['学习react','学习node']
         }
     }
     render(){
         return (
         <div className='todo-list'>
-        <div className="todo-add">
-            <input 
+            <div className="todo-add">
+                <input 
                 type="text" 
                 value={this.state.inputValue}
                 onChange={this.handleInputChange.bind(this)}
-            />
-            <button onClick={this.handleAddBtnClick.bind(this)}>add</button>
-        </div>
-        <ul>
-           {
+                />
+                <button onClick={this.handleAddBtnClick.bind(this)}>add</button>
+            </div>
+            <ul>
+             {
                this.state.list.map((item,index) =>{
                 return (
-                    <Fragment>
-                    <li 
-                     className='todo-item'
-                     key={index} 
-                     dangerouslySetInnerHTML={{__html:item}}
-                     >
-                     </li>
-                   <button onClick={this.handleRemBtnClick.bind(this,index)}>remove</button>
-                   </Fragment>)
-             })
-          }
-        </ul>
-        </div>
+                    <Btodoitem 
+                        content={item} 
+                        index={index} 
+                        deleteItem={this.handleRemBtnClick.bind(this)}
+                    />                
+                   )
+                })
+             }
+             </ul>
+    </div>
         )
     }
     handleInputChange(e){
@@ -43,7 +42,7 @@ class Btodolist extends Component{
             inputValue:e.target.value
         })         
     }
-    handleAddBtnClick(){
+   handleAddBtnClick(){
         this.setState({
              list:[...this.state.list,this.state.inputValue],
              inputValue:''
@@ -58,5 +57,6 @@ class Btodolist extends Component{
             list:updateList
         })
     }
+
 }
 export default Btodolist
