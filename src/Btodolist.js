@@ -1,8 +1,8 @@
 import React,{Component} from "react"
 
-import Btodoitem from "./Btodoitem"
+import BTodoItem from "./BTodoItem"
 import './style.css'
-class Btodolist extends Component{
+class BTodoList extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -33,7 +33,7 @@ class Btodolist extends Component{
     getTodoItem(){
             return this.state.list.map((item,index) =>{
                 return (
-                    <Btodoitem 
+                    <BTodoItem 
                         key={index}
                         content={item} 
                         index={index} 
@@ -68,4 +68,4 @@ class Btodolist extends Component{
         })
     }
 }
-export default Btodolist
+export default BTodoList

@@ -2,6 +2,6 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 // import App from "./App"
-import Btodolist from "./Btodolist"
+import BTodoList from "./BTodoList"
 
-ReactDOM.render(<Btodolist />, document.getElementById("root"))
+ReactDOM.render(<BTodoList />, document.getElementById("root"))

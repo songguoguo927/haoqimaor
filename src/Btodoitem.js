@@ -1,7 +1,7 @@
 import React,{Component,Fragment} from "react"
 import './style.css'
 
-class Btodoitem extends Component{
+class BTodoItem extends Component{
     constructor(props){
         super(props)
         this.handleClick = this.handleClick.bind(this)
@@ -27,4 +27,4 @@ class Btodoitem extends Component{
     }
     
 }
-export default Btodoitem
+export default BTodoItem
