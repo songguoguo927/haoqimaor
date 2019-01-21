@@ -1,6 +1,7 @@
 import React,{Component} from "react"
 
 import BTodoItem from "./BTodoItem"
+import axios from 'axios'
 import './style.css'
 class BTodoList extends Component{
     constructor(props){
@@ -30,11 +31,16 @@ class BTodoList extends Component{
     </div>
         )
     }
+    // componentDidMount(){
+    //         axios.get('/api/todolist')
+    //             .then(() =>{alert('success')})
+    //             .catch(() =>{alert('error')})
+    // }
     getTodoItem(){
             return this.state.list.map((item,index) =>{
                 return (
                     <BTodoItem 
-                        key={index}
+                        key={item}
                         content={item} 
                         index={index} 
                         deleteItem={this.handleRemBtnClick}
@@ -58,7 +64,7 @@ class BTodoList extends Component{
              })  )   
     }
     handleRemBtnClick(index){
-        console.log(index)//点击某一项按钮，展示对应下标
+        // console.log(index)//点击某一项按钮，展示对应下标
         
         const updateList = [...this.state.list]//拷贝一个副本
         updateList.splice(index,1)
