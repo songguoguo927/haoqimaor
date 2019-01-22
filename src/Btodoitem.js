@@ -25,8 +25,9 @@ class BTodoItem extends Component{
                     <Fragment>
                     <li className='todo-item'>
                     <input type="checkbox"
+                          onChange={this.handleChangeCheck}
                             checked={this.state.xian}
-                            onChange={this.handleChangeCheck}/>
+                           />
                     <p className={this.state.xian ? 'you' : ''}
                      dangerouslySetInnerHTML={{__html:content}}
                      >
@@ -43,7 +44,7 @@ class BTodoItem extends Component{
         // console.log(this.props.index)
     }
     handleChangeCheck(){
-        console.log('希望勾选时，text有划线')
+        // console.log('希望勾选时，text有划线')
         //做checkbox勾选切换
         this.setState({
          xian:this.state.xian ? false : true    
