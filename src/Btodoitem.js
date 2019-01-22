@@ -5,7 +5,7 @@ class BTodoItem extends Component{
     constructor(props){
         super(props)
         this.state = {
-            check:false
+            xian:false
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChangeCheck = this.handleChangeCheck.bind(this)
@@ -25,9 +25,9 @@ class BTodoItem extends Component{
                     <Fragment>
                     <li className='todo-item'>
                     <input type="checkbox"
-                            checked={this.state.check}
+                            checked={this.state.xian}
                             onChange={this.handleChangeCheck}/>
-                    <p 
+                    <p className={this.state.xian ? 'you' : ''}
                      dangerouslySetInnerHTML={{__html:content}}
                      >
                      </p>
@@ -43,8 +43,11 @@ class BTodoItem extends Component{
         // console.log(this.props.index)
     }
     handleChangeCheck(){
-        console.log('1')
+        console.log('希望勾选时，text有划线')
         //做checkbox勾选切换
+        this.setState({
+         xian:this.state.xian ? false : true    
+        })
     }
 }
 export default BTodoItem
