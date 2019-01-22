@@ -7,7 +7,7 @@ class BTodoItem extends Component{
     constructor(props){
         super(props)
         this.state = {
-            xian:false
+            xian:true
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChangeCheck = this.handleChangeCheck.bind(this)
@@ -47,11 +47,17 @@ class BTodoItem extends Component{
         // console.log(this.props.index)
     }
     handleChangeCheck(e){
-        // console.log('希望勾选时，text有划线')
+        console.log(e.target.checked)
         //做checkbox勾选切换
-         console.log(`checked = ${e.target.checked}`);
-        this.setState({
-         xian:this.state.xian ? false : true    
+        //  console.log(`checked = ${e.target.checked}`)
+        // this.setState({
+        // //  xian:this.state.xian ? false : true  
+        //  xian:e.target.checked ? false : true   
+          
+        // })
+        this.setState((prevState)=>{
+            console.log(prevState)
+            return {xian:prevState.xian}
         })
     }
 }
