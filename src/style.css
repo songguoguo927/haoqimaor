@@ -1,7 +1,9 @@
 body {
     background-color: whitesmoke;
 }
-
+.todo-add{
+    display: inherit
+}
 .todo-list {
     background-color: white;
     margin: auto;
@@ -29,7 +31,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding: 30px 20px 0;
-    width: 70%;
+    /*width: 70%;*/
     border-bottom: 1px solid #cecece;
     font-family: Roboto, sans-serif;
     font-weight: 100;
@@ -44,6 +46,10 @@ input[type=checkbox] {
 
 input[type=checkbox]:focus {
     outline: 0;
+}
+#text{
+    margin-right: 20px;
+    padding: 0 20px;
 }
 
 /*css 过渡动画*/

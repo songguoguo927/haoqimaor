@@ -1,4 +1,6 @@
 import React,{Component,Fragment} from "react"
+import 'antd/dist/antd.css'
+import { Button,Checkbox } from 'antd';
 import './style.css'
 
 class BTodoItem extends Component{
@@ -24,15 +26,16 @@ class BTodoItem extends Component{
         return (
                     <Fragment>
                     <li className='todo-item'>
-                    <input type="checkbox"
+                    <Checkbox type="checkbox"
                           onChange={this.handleChangeCheck}
                             checked={this.state.xian}
-                           />
-                    <p className={this.state.xian ? 'you' : ''}
+                          ></Checkbox>
+                    <p id='text' 
+                    className={this.state.xian ? 'you' : ''}
                      dangerouslySetInnerHTML={{__html:content}}
                      >
                      </p>
-                   <button onClick={this.handleClick}>remove</button>
+                   <Button type="danger" onClick={this.handleClick}>remove</Button>
                    </li>
                    </Fragment>
                    )
@@ -43,9 +46,10 @@ class BTodoItem extends Component{
         deleteItem(index)
         // console.log(this.props.index)
     }
-    handleChangeCheck(){
+    handleChangeCheck(e){
         // console.log('希望勾选时，text有划线')
         //做checkbox勾选切换
+         console.log(`checked = ${e.target.checked}`);
         this.setState({
          xian:this.state.xian ? false : true    
         })

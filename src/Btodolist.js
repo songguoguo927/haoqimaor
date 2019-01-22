@@ -1,4 +1,7 @@
 import React,{Component} from "react"
+import 'antd/dist/antd.css'
+import { Input,Button } from 'antd';
+
 
 import BTodoItem from "./BTodoItem"
 import axios from 'axios'
@@ -7,7 +10,7 @@ class BTodoList extends Component{
     constructor(props){
         super(props)
         this.state = {
-            inputValue:'添加待做事项',
+            inputValue:'',
             list: ['学习react','学习node']
         }
         this.handleInputChange = this.handleInputChange.bind(this)//把该方法绑定到这个组件Btodolist
@@ -18,12 +21,14 @@ class BTodoList extends Component{
         return (
         <div className='todo-list'>
             <div className="todo-add">
-                <input 
+                <Input 
+                placeholder="添加待做事项"  
                 type="text" 
                 value={this.state.inputValue}
                 onChange={this.handleInputChange}
+                style={{marginRight:'10px'}}
                 />
-                <button onClick={this.handleAddBtnClick}>add</button>
+                <Button type="primary" onClick={this.handleAddBtnClick}>add</Button>
             </div>
             <ul>
              {this.getTodoItem()}
