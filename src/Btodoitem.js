@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 import { Button,Checkbox } from 'antd';
 import './style.css'
 
-class BTodoItem extends Component{
+class Btodoitem extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -61,4 +61,4 @@ class BTodoItem extends Component{
         })
     }
 }
-export default BTodoItem
+export default Btodoitem

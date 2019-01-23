@@ -3,10 +3,10 @@ import 'antd/dist/antd.css'
 import { Input,Button } from 'antd';
 import store from './store/index.js'
 
-import BTodoItem from "./BTodoItem"
+import Btodoitem from "./Btodoitem"
 import axios from 'axios'
 import './style.css'
-class BTodoList extends Component{
+class Btodolist extends Component{
     constructor(props){
         super(props)
         console.log(store.getState())
@@ -51,7 +51,7 @@ class BTodoList extends Component{
     getTodoItem(){
             return this.state.list.map((item,index) =>{
                 return (
-                    <BTodoItem 
+                    <Btodoitem 
                         key={item}
                         content={item} 
                         index={index} 
@@ -86,4 +86,4 @@ class BTodoList extends Component{
         })
     }
 }
-export default BTodoList
+export default Btodolist
