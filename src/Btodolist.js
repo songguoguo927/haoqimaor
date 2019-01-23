@@ -66,14 +66,6 @@ class Btodolist extends Component{
                 })
     }
     handleInputChange(e){
-        // this.setState({
-        //     inputValue:e.target.value
-        // }) 
-        //---
-        // const value = e.target.value
-        // this.setState(() =>({
-        //     inputValue: value
-        // }))  
         // console.log('1') 
         //创建一句话，传给store，利用图中的dispatch是(action)方法
         const action = {
@@ -95,12 +87,17 @@ class Btodolist extends Component{
     handleRemBtnClick(index){
         // console.log(index)//点击某一项按钮，展示对应下标
         
-        const updateList = [...this.state.list]//拷贝一个副本
-        updateList.splice(index,1)
+        // const updateList = [...this.state.list]//拷贝一个副本
+        // updateList.splice(index,1)
         
-        this.setState({
-            list:updateList
-        })
+        // this.setState({
+        //     list:updateList
+        // })
+       const action = {
+           type:'remove_todo_item',
+           index
+        }
+        store.dispatch(action)
     }
 }
 export default Btodolist
