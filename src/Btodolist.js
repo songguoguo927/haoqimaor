@@ -9,11 +9,14 @@ import './style.css'
 class Btodolist extends Component{
     constructor(props){
         super(props)
-        console.log(store.getState())
+        // console.log(store.getState())
         this.state = store.getState()
         this.handleInputChange = this.handleInputChange.bind(this)//把该方法绑定到这个组件Btodolist
         this.handleAddBtnClick = this.handleAddBtnClick.bind(this)
         this.handleRemBtnClick = this.handleRemBtnClick.bind(this)
+        this.handleStoreChange = this.handleStoreChange.bind(this)
+        store.subscribe(this.handleStoreChange)
+        
 }
     render(){
         return (
@@ -34,7 +37,8 @@ class Btodolist extends Component{
     </div>
         )
     }
-    componentDidMount(){
+ 
+        componentDidMount(){
             axios.get('/api/todolist')
                 .then(() =>{alert('success')})
                 .catch(() =>{alert('error')})
@@ -47,7 +51,8 @@ class Btodolist extends Component{
             //         }
             //     })})
             //     .catch(() =>{alert('error')})
-    }
+       }
+
     getTodoItem(){
             return this.state.list.map((item,index) =>{
                 return (
@@ -64,16 +69,28 @@ class Btodolist extends Component{
         // this.setState({
         //     inputValue:e.target.value
         // }) 
-        const value = e.target.value
-        this.setState(() =>({
-            inputValue: value
-        }))      
+        //---
+        // const value = e.target.value
+        // this.setState(() =>({
+        //     inputValue: value
+        // }))  
+        // console.log('1') 
+        //创建一句话，传给store，利用图中的dispatch是(action)方法
+        const action = {
+            type:'change_input_value',
+            value:e.target.value
+        }   
+        store.dispatch(action)
+    }
+    handleStoreChange(){
+        // console.log("store change")
+        this.setState(store.getState())
     }
    handleAddBtnClick(){
-        this.setState((prevState) =>({
-             list:[...prevState.list,prevState.inputValue],
-             inputValue:''
-             })  )   
+        const action = {
+            type:'add_todo_item'
+        }
+        store.dispatch(action)
     }
     handleRemBtnClick(index){
         // console.log(index)//点击某一项按钮，展示对应下标

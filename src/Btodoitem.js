@@ -21,7 +21,7 @@ class Btodoitem extends Component{
         }
     }
     render(){
-        console.log('child render')
+        // console.log('child render')
         const { content } = this.props
         return (
                     <Fragment>
