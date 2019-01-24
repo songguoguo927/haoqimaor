@@ -1,10 +1,11 @@
 import React,{Component} from "react"
 import 'antd/dist/antd.css'
-import { Input,Button } from 'antd';
+
 import store from './store/index.js'
+import BtodolistUI from './BtodolistUI'
 
 import {getInputChangeAction,getAddTodoItemAction,getRemoveTodoItemAction} from './store/actionCreators'
-import Btodoitem from "./Btodoitem"
+
 import axios from 'axios'
 import './style.css'
 class Btodolist extends Component{
@@ -20,23 +21,13 @@ class Btodolist extends Component{
         
 }
     render(){
-        return (
-        <div className='todo-list'>
-            <div className="todo-add">
-                <Input 
-                placeholder="添加待做事项"  
-                type="text" 
-                value={this.state.inputValue}
-                onChange={this.handleInputChange}
-                style={{marginRight:'10px'}}
-                />
-                <Button type="primary" onClick={this.handleAddBtnClick}>add</Button>
-            </div>
-            <ul>
-             {this.getTodoItem()}
-             </ul>
-    </div>
-        )
+        return <BtodolistUI
+             inputValue={this.state.inputValue}
+             handleInputChange={this.handleInputChange}
+             handleAddBtnClick={this.handleAddBtnClick}
+             list={this.state.list}
+             handleRemBtnClick={this.handleRemBtnClick}
+             />
     }
  
         componentDidMount(){
@@ -54,18 +45,6 @@ class Btodolist extends Component{
             //     .catch(() =>{alert('error')})
        }
 
-    getTodoItem(){
-            return this.state.list.map((item,index) =>{
-                return (
-                    <Btodoitem 
-                        key={item}
-                        content={item} 
-                        index={index} 
-                        deleteItem={this.handleRemBtnClick}
-                    />                
-                   )
-                })
-    }
     handleInputChange(e){
         // console.log('1') 
         //创建一句话，传给store，利用图中的dispatch是(action)方法
