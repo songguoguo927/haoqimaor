@@ -31,18 +31,19 @@ class Btodolist extends Component{
     }
  
         componentDidMount(){
-            axios.get('/api/todolist')
-                .then(() =>{alert('success')})
-                .catch(() =>{alert('error')})
-            // axios.get('/api/todolist')
-            //     .then((res) =>{
-            //         console.log(res.data)
-            //     this.setState(() =>{
-            //         return {
-            //             list:[...res.data]
-            //         }
-            //     })})
+            // axios.get('/api/todolist.json')
+            //     .then(() =>{alert('success')})
             //     .catch(() =>{alert('error')})
+            axios.get('/api/todolist.json')
+                .then((res) =>{
+                    console.log(res.data)
+                    this.setState(() =>{
+                    return {
+                        list:[...res.data]
+                    }
+                })
+                })
+                .catch(() =>{alert('error')})
        }
 
     handleInputChange(e){

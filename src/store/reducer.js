@@ -1,7 +1,7 @@
 import { CHANGE_INPUT_VALUE,ADD_TODO_ITEM,REMOVE_TODO_ITEM } from './actionTypes'
 const defaultState = {
     inputValue:'',
-    list: ['学习react','学习node']
+    list: ['react','node+koa']
 }
 //reducer可以接受state，绝不可修改state
 export default (state = defaultState, action)=>{
