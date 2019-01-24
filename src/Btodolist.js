@@ -2,7 +2,8 @@ import React,{Component} from "react"
 import 'antd/dist/antd.css'
 import { Input,Button } from 'antd';
 import store from './store/index.js'
-import { CHANGE_INPUT_VALUE,ADD_TODO_ITEM,REMOVE_TODO_ITEM } from './store/actionTypes'
+
+import {getInputChangeAction,getAddTodoItemAction,getRemoveTodoItemAction} from './store/actionCreators'
 import Btodoitem from "./Btodoitem"
 import axios from 'axios'
 import './style.css'
@@ -68,10 +69,7 @@ class Btodolist extends Component{
     handleInputChange(e){
         // console.log('1') 
         //创建一句话，传给store，利用图中的dispatch是(action)方法
-        const action = {
-            type:CHANGE_INPUT_VALUE,
-            value:e.target.value
-        }   
+        const action = getInputChangeAction(e.target.value)
         store.dispatch(action)
     }
     handleStoreChange(){
@@ -79,17 +77,12 @@ class Btodolist extends Component{
         this.setState(store.getState())
     }
    handleAddBtnClick(){
-        const action = {
-            type:ADD_TODO_ITEM
-        }
+        const action = getAddTodoItemAction()
         store.dispatch(action)
     }
     handleRemBtnClick(index){
         // console.log(index)//点击某一项按钮，展示对应下标
-       const action = {
-           type:REMOVE_TODO_ITEM,
-           index
-        }
+       const action = getRemoveTodoItemAction(index)
         store.dispatch(action)
     }
 }
