@@ -39,14 +39,14 @@ body {
     color: #333333;
 }
 
-input[type=checkbox] {
+/*input[type=checkbox] {
     margin-right: 10px;
     font-size: 30px;
 }
 
 input[type=checkbox]:focus {
     outline: 0;
-}
+}*/
 #text{
     margin-right: 20px;
     padding: 0 20px;
