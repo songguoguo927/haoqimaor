@@ -1,13 +1,10 @@
 import React,{Component} from "react"
 import 'antd/dist/antd.css'
-
 import store from './store/index.js'
 import BtodolistUI from './BtodolistUI'
-
 import {getTodoList,getInputChangeAction,getAddTodoItemAction,getRemoveTodoItemAction} from './store/actionCreators'
-
-
 import './style.css'
+
 class Btodolist extends Component{
     constructor(props){
         super(props)
@@ -17,9 +14,8 @@ class Btodolist extends Component{
         this.handleAddBtnClick = this.handleAddBtnClick.bind(this)
         this.handleRemBtnClick = this.handleRemBtnClick.bind(this)
         this.handleStoreChange = this.handleStoreChange.bind(this)
-        store.subscribe(this.handleStoreChange)
-        
-}
+        store.subscribe(this.handleStoreChange)       
+    }
     render(){
         return <BtodolistUI
              inputValue={this.state.inputValue}
@@ -30,10 +26,10 @@ class Btodolist extends Component{
              />
     }
  
-        componentDidMount(){
+    componentDidMount(){
             const action = getTodoList()
            store.dispatch(action)
-       }
+    }
 
     handleInputChange(e){
         // console.log('1') 
@@ -45,10 +41,12 @@ class Btodolist extends Component{
         // console.log("store change")
         this.setState(store.getState())
     }
+
    handleAddBtnClick(){
         const action = getAddTodoItemAction()
         store.dispatch(action)
     }
+    
     handleRemBtnClick(index){
         // console.log(index)//点击某一项按钮，展示对应下标
        const action = getRemoveTodoItemAction(index)

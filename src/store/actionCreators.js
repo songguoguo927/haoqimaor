@@ -16,6 +16,7 @@ export const initListAction = (data) =>({
         type:INIT_LIST,
         data
 })
+//以前创建的一个action 只能是一个js对象
 //使用thunk后返回的不光仅仅是一个对象，还可以是下面的函数
 export const getTodoList = () =>{
         return (dispatch) =>{
