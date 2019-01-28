@@ -1,7 +1,7 @@
-import { CHANGE_INPUT_VALUE,ADD_TODO_ITEM,REMOVE_TODO_ITEM } from './actionTypes'
+import { CHANGE_INPUT_VALUE,ADD_TODO_ITEM,REMOVE_TODO_ITEM,INIT_LIST } from './actionTypes'
 const defaultState = {
     inputValue:'',
-    list: ['react','node+koa']
+    list: []
 }
 //reducer可以接受state，绝不可修改state
 export default (state = defaultState, action)=>{
@@ -10,6 +10,11 @@ export default (state = defaultState, action)=>{
         //对原来的数据做一次深拷贝
         const newState = JSON.parse(JSON.stringify(state))
         newState.inputValue = action.value
+        return newState
+    }
+    if(action.type === INIT_LIST){
+        const newState = JSON.parse(JSON.stringify(state))
+        newState.list = action.data
         return newState
     }
     if(action.type === ADD_TODO_ITEM){

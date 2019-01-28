@@ -4,7 +4,7 @@ import 'antd/dist/antd.css'
 import store from './store/index.js'
 import BtodolistUI from './BtodolistUI'
 
-import {getInputChangeAction,getAddTodoItemAction,getRemoveTodoItemAction} from './store/actionCreators'
+import {getInputChangeAction,getAddTodoItemAction,getRemoveTodoItemAction,initListAction} from './store/actionCreators'
 
 import axios from 'axios'
 import './style.css'
@@ -31,17 +31,11 @@ class Btodolist extends Component{
     }
  
         componentDidMount(){
-            // axios.get('/api/todolist.json')
-            //     .then(() =>{alert('success')})
-            //     .catch(() =>{alert('error')})
             axios.get('/api/todolist.json')
                 .then((res) =>{
-                    console.log(res.data)
-                    this.setState(() =>{
-                    return {
-                        list:[...res.data]
-                    }
-                })
+                    const data = res.data
+                    const action = initListAction(data)
+                    store.dispatch(action)
                 })
                 .catch(() =>{alert('error')})
        }
