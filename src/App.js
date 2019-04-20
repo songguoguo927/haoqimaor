@@ -1,10 +1,10 @@
 import React,{Component} from "react"
 
-import TodoItem from "./TodoItem"
-import todosData from "./todosData"
-import MoodCard from "./MoodCard"
+import TodoItem from "./E-todo/TodoItem"
+import todosData from "./E-todo/todosData"
+import MoodCard from "./moodComp/MoodCard"
 
-import moodCardData from "./moodCardData"
+import moodCardData from "./moodComp/moodCardData"
 const cardComponents = moodCardData.map(item =><MoodCard key={item.id}
                cardItem={item}
  />)

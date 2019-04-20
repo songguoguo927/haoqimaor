@@ -1,6 +1,6 @@
 import React,{Component,Fragment} from 'react'
 
-import './style.css'
+import '../style.css'
 class Toggle extends Component{
     constructor(){
         super()
